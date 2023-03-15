@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="commons/header :: header" >
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css" />
+  <script th:src="@{/js/bootstrap.js}" src="../../static/js/bootstrap.js"></script>
+  <script th:src="@{/js/jquery-3.6.1.min.js}" src="../../static/js/jquery-3.6.1.min.js"></script>
+  <title>clienets@</title>
+</head>
+
+<body>
+  <div th:replace="commons/menu :: menu" />
+
+  <div class="container">
+    <main>
+  
+      <div class="row g-5">
+        
+        <div class="col-8">
+          <h4 class="mb-3">Datos asignatura</h4>
+          <form class="needs-validation"  method="post" th:action="@{/asignaturas/update}"  novalidate>
+            <input type="hidden" name="idAsignatura" th:value="${asignatura.idAsignatura}">
+
+            <div class="col-sm-6">
+              <label for="curso" class="form-label">curso</label>
+              <input type="number" class="form-control" id="curso" name="curso" placeholder="" th:value="${asignatura.curso}" value="" required>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="cuatrimestre" class="form-label">cuatrimestre</label>
+              <input type="number" class="form-control" id="cuatrimestre" name="cuatrimestre" placeholder="" th:value="${asignatura.cuatrimestre}" value="" required>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="nombre" class="form-label">nombre</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="" th:value="${asignatura.nombre}" value="" required>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="caracter" class="form-label">caracter</label>
+              <input type="text" class="form-control" id="caracter" name="caracter" placeholder="" th:value="${asignatura.caracter}" value="" required>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="creditos" class="form-label">creditos</label>
+              <input type="number" class="form-control" id="creditos" name="creditos" placeholder="" th:value="${asignatura.creditos}" value="" required>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="coordinador" class="form-label">coordinador</label>
+              <input type="text" class="form-control" id="coordinador" name="coordinador" placeholder="" th:value="${asignatura.coordinador}" value="" required>
+            </div>
+            
+
+            </div>
+  
+            <hr class="my-4">
+  
+            <div class="col-sm-12">
+              <div class="btn-group">
+                <a class="btn btn-primary" th:href="@{/asignaturas/list}" href="#" role="button">Cancelar</a>
+                <button class="btn btn-primary" type="submit">Crear</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>
